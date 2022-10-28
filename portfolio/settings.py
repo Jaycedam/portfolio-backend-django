@@ -44,11 +44,15 @@ INSTALLED_APPS = [
     'projects',
 ]
 
-# Override default auth for JWT
 REST_FRAMEWORK = {
+    # Override default auth for JWT
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    # Restriction for API, allows get for anyone, the rest with auth
+     'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticatedOrReadOnly',
+    ]
 }
 
 MIDDLEWARE = [
