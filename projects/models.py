@@ -14,7 +14,7 @@ class Project(models.Model):
 
     class Meta:
         db_table = "project"
-        ordering = ['id']
+        ordering = ['-id']
 
 
 class Area(models.Model):
